@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "refactornci"
+version = "0.1.0"
+description = ""
+authors = ["Deep Patel <103231317+Deep4GB@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flake8 = "^6.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
