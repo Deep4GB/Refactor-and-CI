@@ -1,3 +1,20 @@
+# ### Doubly Linked List
+#
+# The purpose of this assignment is to make you familiar with implementing a data structure in Python in an object oriented way.
+# During lectures we implemented a few simple linear data structres: queue, list, deques, stacks. Now we expect you to implement one of these structures yourself.
+#
+# You are provided with two classes: **Node** and **DoublyLinkedList**. The first one is already implemented (you don't need to modify it), the second one consist only a structure of empty methods defined. Your task is to come up with an implementation of these methods.
+#
+# _Note_: If a list is doubly linked, each node contains a reference to the _previous_ node in the chain and a reference to the _next_ node.
+#
+# You are expected to implement every function in DoublyLinkedList. Including the *next()* function, which is used by an iterator object in python. The *map(func)* function applies a function to every element in the list.
+# All other functions are available in the PSADS book.
+
+# ## Constructing a Doubly Linked List
+#
+# The **Node** class implementation is already given:
+
+
 class Node(object):
     """Doubly linked node which stores an object"""
 
@@ -35,13 +52,16 @@ class Node(object):
         return str((self.__element, self.get_next()))
 
 
+# The following code snippet is a constructor provided by the **DoublyLinkedList** Python class for the creation of a new doubly linked list. **Extend the snippet below with your implementation of the DoublyLinkedList**.
+
+
 class DoublyLinkedList(object):
     """Doubly linked node data structure"""
 
     def __init__(self):
         self.__size = 0
-        self.__header = Node('Header')
-        self.__trailer = Node('Trailer')
+        self.__header = Node("Header")
+        self.__trailer = Node("Trailer")
         self.__header.set_next(self.__trailer)
         self.__trailer.set_previous(self.__header)
         self.__current = None
@@ -88,7 +108,7 @@ class DoublyLinkedList(object):
 
     def get_last(self):
         """Get the last element of the list"""
-        if self is_empty():
+        if self.is_empty():
             raise Exception("List is empty")
         else:
             return self.__trailer.get_previous()
@@ -96,14 +116,16 @@ class DoublyLinkedList(object):
     def get_previous(self, node):
         """Returns the node before the given node"""
         if node == self.__header:
-            raise Exception("Cannot get the element before the header of this list")
+            raise Exception(
+                "Cannot get the element before the header of this list")
         else:
             return node.get_previous()
 
     def get_next(self, node):
         """Returns the node after the given node"""
         if node == self.__trailer:
-            raise Exception("Cannot get the element after the trailer of this list")
+            raise Exception(
+                "Cannot get the element after the trailer of this list")
         else:
             return node.get_next()
 
